@@ -3,6 +3,14 @@
 import Link from "next/link"
 import {useState} from 'react';
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
+import {
+ChatBubbleLeftIcon,
+ChevronDownIcon,
+HomeIcon,
+PaperAirplaneIcon,
+PhoneIcon,
+PlayCircleIcon
+} from "@heroicons/react/20/solid"
 import {Dialog, Disclosure, Popover, Transition} from "@headlessui/react"
 
 function Header() {
