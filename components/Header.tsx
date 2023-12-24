@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import {useState} from 'react';
-import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline"
+import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
+import {Dialog, Disclosure, Popover, Transition} from "@headlessui/react"
 
 function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -26,6 +27,18 @@ function Header() {
             <Bars3Icon className="h-6 w-6" aria-hidden= "true" />
         </button>
     </div>
+
+    <Popover.Group className="hidden lg:flex lg:gap-x-12">
+        <Popover className="relative">
+            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white ">
+                Stays
+                <ChevronDownIcon 
+                className="h-5 w-5 flex-none text-white"
+                aria-hidden="true"/>
+            </Popover.Button>
+
+        </Popover>
+    </Popover.Group>
     </nav> 
     </header>
   )
