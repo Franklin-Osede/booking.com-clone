@@ -11,7 +11,28 @@ PaperAirplaneIcon,
 PhoneIcon,
 PlayCircleIcon
 } from "@heroicons/react/20/solid"
-import {Dialog, Disclosure, Popover, Transition} from "@headlessui/react"
+import {Dialog, Disclosure, Popover, Transition} from "@headlessui/react";
+
+const products = [
+    {
+        name: "Book a stay",
+        description: "Get a better understanding of your traffic",
+        href: "#",
+        icon: HomeIcon,
+    },
+    {
+        name: "Book a Flight",
+        description: "Speak directly to your customers",
+        href: "#",
+        icon: PaperAirplaneIcon,
+    },
+    {
+        name: "Contact our Support Team",
+        description: "Your customer´s data will be safe and secure",
+        href: "#",
+        icon: ChatBubbleLeftIcon,
+    }
+]
 
 function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -54,6 +75,9 @@ function Header() {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
             >
+                <Popover.Panel className="absolute bg-white -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5">
+
+                </Popover.Panel>
 
             </Transition>
 
