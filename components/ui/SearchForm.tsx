@@ -4,7 +4,19 @@ import {zodResolver} from "@hookform/resolvers/zod"
 import {useRouter} from "next/navigation";
 import {useForm} from "react-hook-form"
 import * as z from "zod";
+import {Button} from "@/components/ui/button";
+import { BedDoubleIcon, CalendarIcon } from "lucide-react";
 
+import{
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+}from "@/components/ui/form"
+import {Input} from "@/components/ui/input"
 
 
 export const formSchema = z.object({
@@ -48,10 +60,31 @@ function SearchForm() {
 
     function onSubmit (values: z.infer<typeof formSchema>){}
   return (
-    <div>
-      SearchForm
-    </div>
-  )
+    <Form {...form}>
+      <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="flex flex-col lg:flex-row lg:max-w-6xl lg:mx-auto items-center justify-center space-x-0 lg:space-x-2 space-y-4 lg:space-y-0 rounded-lg"
+      >
+        <div className="grid w-full lg:max-w-sm items-center gap-1.5">
+          <FormField
+          control= {form.control}
+          name="location"
+          render={({field})=>(
+            <FormItem>
+              <FormLabel className="text-white flex">
+              Location
+              <BedDoubleIcon className="ml-2 h-4 w-4 text-white"/>
+              </FormLabel>
+              <FormMessage/>
+              <FormControl>
+                <Input placeholder="London, UK"{...field} />
+              </FormControl>
+            </FormItem>
+          )} />
+        </div>
+      </form>
+    </Form>
+     )
 }
 
 export default SearchForm
