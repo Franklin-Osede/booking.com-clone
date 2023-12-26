@@ -12,6 +12,7 @@ PhoneIcon,
 PlayCircleIcon
 } from "@heroicons/react/20/solid"
 import {Dialog, Disclosure, Popover, Transition} from "@headlessui/react";
+import { cn } from "@/lib/utils";
 
 const products = [
     {
@@ -178,7 +179,29 @@ function Header() {
             </button>
           </div>
 
-         <div className="mt-6 flow-root"></div>
+         <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+
+                    <Disclosure as="div" className="-mx-3">
+                        {({open})=>(
+                            <>
+                            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-blue-800">
+                                Stays 
+                                <ChevronDownIcon
+                                className={cn(
+                                    open ? "rotate-180" : "",
+                                    "h-5 w-5 flex-none"
+                                )}
+                                aria-hidden="true" />
+                            </Disclosure.Button>
+                            </>
+                        ) }
+                    </Disclosure>
+
+                </div>
+            </div>
+         </div>
         </Dialog.Panel>
     
     </Dialog>
