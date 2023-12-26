@@ -6,7 +6,9 @@ import {useForm} from "react-hook-form"
 import * as z from "zod";
 import {Button} from "@/components/ui/button";
 import { BedDoubleIcon, CalendarIcon } from "lucide-react";
-import {Popover, PopoverContent,PopoverTrigger} from './popover'
+import {Popover, PopoverContent,PopoverTrigger} from './popover';
+import {format} from "date-fns";
+import { cn } from "@/lib/utils";
 
 import{
   Form,
@@ -95,7 +97,35 @@ function SearchForm() {
               <FormLabel className="text-white">Dates</FormLabel>
               <FormMessage/>
               <Popover>
-                <PopoverTrigger ></PopoverTrigger>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                    id="date"
+                    name="dates"
+                    variant={"outline"}
+                    className={cn(
+                      "w-[300px] justify-start text-left font-normal",
+                      !field.value.from && "text-muted-foreground"
+
+                    )}>
+                       <CalendarIcon className="mr-3 h-4 w-4 opacity-50" />
+                        {field.value?.from ? (
+                          field.value?.to ? (
+                            <>
+                              {format(field.value?.from, "LLL dd, y")} -{" "}
+                              {format(field.value?.to, "LLL dd, y")}
+                            </>
+                          ) : (
+                            format(field.value?.from, "LLL dd, y")
+                          )
+                        ) : (
+                          <span>Select your dates</span>
+                        )}
+
+                    
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
               </Popover>
             </FormItem>
           )} />
