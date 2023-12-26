@@ -82,6 +82,8 @@ function SearchForm() {
             </FormItem>
           )} />
         </div>
+
+        <div className="grid w-full lg:max-w-sm flex-1 items-center gap-1.5"></div>
       </form>
     </Form>
      )
