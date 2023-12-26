@@ -6,6 +6,7 @@ import {useForm} from "react-hook-form"
 import * as z from "zod";
 import {Button} from "@/components/ui/button";
 import { BedDoubleIcon, CalendarIcon } from "lucide-react";
+import {Popover, PopoverContent,PopoverTrigger} from './popover'
 
 import{
   Form,
@@ -17,6 +18,7 @@ import{
   FormMessage,
 }from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
+import { fromJSON } from "postcss";
 
 
 export const formSchema = z.object({
@@ -76,6 +78,7 @@ function SearchForm() {
               <BedDoubleIcon className="ml-2 h-4 w-4 text-white"/>
               </FormLabel>
               <FormMessage/>
+              <Popover></Popover>
               <FormControl>
                 <Input placeholder="London, UK"{...field} />
               </FormControl>
@@ -83,7 +86,20 @@ function SearchForm() {
           )} />
         </div>
 
-        <div className="grid w-full lg:max-w-sm flex-1 items-center gap-1.5"></div>
+        <div className="grid w-full lg:max-w-sm flex-1 items-center gap-1.5">
+          <FormField 
+          control= {form.control} 
+          name="dates"
+          render= {({field})=> (
+            <FormItem className="flex flex-col">
+              <FormLabel className="text-white">Dates</FormLabel>
+              <FormMessage/>
+              <Popover>
+                <PopoverTrigger ></PopoverTrigger>
+              </Popover>
+            </FormItem>
+          )} />
+        </div>
       </form>
     </Form>
      )
