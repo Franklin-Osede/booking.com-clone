@@ -1,3 +1,4 @@
+import { fetchResults } from "@/lib/fetchResults";
 import {notFound} from "next/navigation"
 
 type Props={
